@@ -1,0 +1,99 @@
+#+TITLE: Persistence with mongodb and play
+
+* Overview
+
+Pet project to play around with the play scala framework and mongodb to persist data, like books.
+
+* Requirements
+
+- Java 8
+- SBT
+- MongoDB
+
+Additionally I use *activator* to generate a skeleton, and then I remove what I don't need any more:
+
+#+BEGIN_SRC sh
+activator new 
+// template scala-play
+
+cd <my-project-name>
+rm -fr bin libexec
+
+// check everything works
+sbt test
+#+END_SRC
+
+Check mongodb is up and running:
+
+#+BEGIN_SRC sh
+systemctl status mongod.service
+#+END_SRC
+
+Otherwise launch it replacing *status* by *start*.
+
+* MongoDB database
+
+Connect to mongodb and create database *cajas* and collection *libros* if they don't exist.
+Additionally we populate some data, a book on top of my table which clearly isn't on a box.
+
+#+BEGIN_SRC js
+{
+  "titulo": "the art of shaving",
+  "caja": "ninguna"
+}
+#+END_SRC
+
+#+BEGIN_SRC sh
+mongo
+use cajas
+db.libros.save({"titulo": "the art of shaving", "caja": "ninguna"})
+db.libros.find()
+#+END_SRC
+
+* Misc
+
+** This is your new Play application
+
+This file will be packaged with your application when using =activator dist=.
+
+There are several demonstration files available in this template.
+
+** Controllers
+
+- HomeController.scala:
+
+  Shows how to handle simple HTTP requests.
+
+- AsyncController.scala:
+
+  Shows how to do asynchronous programming when handling a request.
+
+- CountController.scala:
+
+  Shows how to inject a component into a controller and use the component when
+  handling requests.
+
+** Components
+
+- Module.scala:
+
+  Shows how to use Guice to bind all the components needed by your application.
+
+- Counter.scala:
+
+  An example of a component that contains state, in this case a simple counter.
+
+- ApplicationTimer.scala:
+
+  An example of a component that starts when the application starts and stops
+  when the application stops.
+
+** Filters
+
+- Filters.scala:
+
+  Creates the list of HTTP filters used by your application.
+
+- ExampleFilter.scala
+
+  A simple filter that adds a header to every response.
