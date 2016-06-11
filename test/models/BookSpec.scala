@@ -2,6 +2,7 @@ package models
 
 import common.UnitSpec
 import play.api.libs.json._
+import models.JsonFormats._
 
 class BookSpec extends UnitSpec {
   val book = Book("the art of shaving")
