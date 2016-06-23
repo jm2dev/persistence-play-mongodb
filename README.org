@@ -55,6 +55,9 @@ db.libros.find()
 - http://reactivemongo.org/releases/0.11/documentation/tutorial/play2.html
 - http://www.cakesolutions.net/teamblogs/2014/03/13/reactivemongo-play-angularjs
 - https://dzone.com/articles/building-rest-service-scala
+- https://semaphoreci.com/community/tutorials/how-to-add-integration-tests-to-a-play-framework-application-using-scala
+- https://gist.github.com/elaforc/9105687
+- http://www.ibm.com/developerworks/library/wa-playful-web-dev-1-trs-bluemix/
 
 * Misc
 

@@ -3,6 +3,8 @@
 # ~~~~
 
 GET     /books                      controllers.BooksController.list
+POST    /book                       controllers.BooksController.persist
+GET     /book/create                controllers.BooksController.create
 
 # An example controller showing a sample home page
 GET     /                           controllers.HomeController.index
